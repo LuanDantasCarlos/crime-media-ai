@@ -1,0 +1,13 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Login</title><link rel="stylesheet" href="../style.css"></head><body>
+<h1>Concluindo login…</h1>
+<p id="msg">Redirecionando para o aplicativo local.</p>
+<script>
+// Repassa ?code=&state= do OAuth do TikTok para o script local (publish_tiktok.py escuta na porta 8723).
+var q = location.search;
+if (q.indexOf("code=") >= 0 || q.indexOf("error=") >= 0) {
+  location.replace("http://localhost:8723/callback/" + q);
+} else {
+  document.getElementById("msg").textContent = "Nenhum código recebido.";
+}
+</script>
+</body></html>
